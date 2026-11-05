@@ -1,0 +1,89 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixins" as *;
+
+.p-creations {
+  padding: 87px 0 76px;
+  font-family: $font-tc;
+
+  @include mq(sp) {
+    padding: 56px 0 48px;
+  }
+
+  &__sub {
+    margin-top: 13px;
+    color: $color-text-sub;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36px;
+    text-align: center;
+
+    @include mq(sp) {
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+
+  &__lead {
+    max-width: 940px;
+    margin: 8px auto 0;
+    color: #1d1d1b;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 36px;
+    text-align: center;
+
+    @include mq(sp) {
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 70px 40px;
+    margin-top: 93px;
+
+    @include mq(sp) {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      margin-top: 32px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 620 / 400;
+    object-fit: cover;
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding-left: 15px;
+    background: $color-primary;
+    color: $color-bg;
+    font-size: 30px;
+    font-weight: 700;
+
+    @include mq(sp) {
+      height: 48px;
+      font-size: 22px;
+    }
+  }
+
+  &__text {
+    margin-top: 21px;
+    color: $color-text-sub;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 32px;
+
+    @include mq(sp) {
+      margin-top: 15px;
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+}

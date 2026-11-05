@@ -1,0 +1,25 @@
+// ==========================================
+// Variables (Thailand)
+// ==========================================
+
+// Colors
+$color-primary: #dd2813;
+$color-accent: #f0db73;
+$color-button: #fcee21;
+$color-text: #000;
+$color-bg: #fff;
+
+// Fonts（英字は Poppins、タイ語は Noto Sans Thai Looped にフォールバック／タイ語見出しは Mitr）
+$font-base: "Poppins", "Noto Sans Thai Looped", sans-serif;
+$font-th: "Noto Sans Thai Looped", sans-serif;
+$font-th-heading: "Mitr", sans-serif;
+
+// Layout
+$container-width: 1280px;
+$container-padding: 20px;
+
+// Breakpoints
+$breakpoints: (
+  sp: 767px,
+  tb: 1023px,
+);

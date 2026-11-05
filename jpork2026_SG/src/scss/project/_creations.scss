@@ -1,0 +1,84 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixins" as *;
+
+.p-creations {
+  padding: 95px 0 42px;
+
+  @include mq(sp) {
+    padding: 56px 0 40px;
+  }
+
+  &__sub {
+    margin-top: 5px;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 38px;
+    text-align: center;
+
+    @include mq(sp) {
+      font-size: 18px;
+      line-height: 26px;
+    }
+  }
+
+  &__lead {
+    max-width: 810px;
+    margin: 2px auto 0;
+    font-weight: 500;
+    line-height: 28px;
+    text-align: center;
+
+    @include mq(sp) {
+      line-height: 24px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 39px 34px;
+    margin-top: 43px;
+
+    @include mq(tb) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include mq(sp) {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      margin-top: 32px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 404 / 285;
+    object-fit: cover;
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding-left: 14px;
+    background: $color-primary;
+    color: $color-bg;
+    font-size: 25px;
+    font-weight: 700;
+
+    @include mq(sp) {
+      height: 48px;
+      font-size: 20px;
+    }
+  }
+
+  &__text {
+    margin-top: 15px;
+    font-weight: 500;
+    line-height: 28px;
+
+    @include mq(sp) {
+      line-height: 24px;
+    }
+  }
+}

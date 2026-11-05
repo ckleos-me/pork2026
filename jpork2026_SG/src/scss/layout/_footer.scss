@@ -1,0 +1,17 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixins" as *;
+
+.l-footer {
+  padding: 42px 0 48px;
+  text-align: center;
+
+  small {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+
+    @include mq(sp) {
+      font-size: 11px;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-base;
+  font-size: 18px;
+  color: $color-text;
+  background: $color-bg;
+  line-height: 1.4;
+  // 中国語の句読点を詰める（デザインの字詰めに合わせる）
+  font-feature-settings: "palt";
+  -webkit-font-smoothing: antialiased;
+
+  @include mq(sp) {
+    font-size: 15px;
+  }
+}
+
+a {
+  transition: opacity 0.3s;
+
+  @include hover {
+    opacity: 0.7;
+  }
+}

@@ -1,0 +1,24 @@
+@use "sass:map";
+@use "variables" as *;
+
+// 指定ブレイクポイント以下
+@mixin mq($bp: sp) {
+  @media (max-width: map.get($breakpoints, $bp)) {
+    @content;
+  }
+}
+
+// 指定ブレイクポイントより上
+@mixin mq-up($bp: sp) {
+  @media (min-width: (map.get($breakpoints, $bp) + 1)) {
+    @content;
+  }
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}

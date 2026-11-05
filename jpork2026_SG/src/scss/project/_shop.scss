@@ -1,0 +1,188 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixins" as *;
+
+.p-shops-head {
+  padding-top: 76px;
+
+  @include mq(sp) {
+    padding-top: 48px;
+  }
+
+  & + .p-shop {
+    padding-top: 18px;
+  }
+}
+
+// ==========================================
+// 店舗ブロック（白背景 / 赤背景 --red）
+// ==========================================
+.p-shop {
+  padding: 60px 0 64px;
+
+  @include mq(sp) {
+    padding: 40px 0 48px;
+  }
+
+  &__header {
+    margin-bottom: 30px;
+    color: $color-primary;
+  }
+
+  &__name {
+    border-bottom: 2px solid currentColor;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 50px;
+
+    @include mq(sp) {
+      font-size: 26px;
+      line-height: 36px;
+    }
+  }
+
+  &__address {
+    margin-top: 6px;
+    font-size: 16px;
+    line-height: 22px;
+
+    @include mq(sp) {
+      font-size: 13px;
+      line-height: 19px;
+    }
+  }
+
+  &__links {
+    font-size: 16px;
+    line-height: 22px;
+
+    @include mq(sp) {
+      font-size: 13px;
+      line-height: 19px;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px;
+
+    @include mq(sp) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--red {
+    background: $color-primary;
+    color: $color-bg;
+
+    .p-shop__header {
+      color: $color-accent;
+    }
+
+    .p-shop__address {
+      color: $color-bg;
+    }
+  }
+}
+
+// ==========================================
+// メニューカード
+// ==========================================
+.p-menu {
+  &__image {
+    position: relative;
+    aspect-ratio: 620 / 436;
+  }
+
+  &__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__logo {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 120px;
+    border-radius: 50%;
+
+    @include mq(sp) {
+      width: 72px;
+    }
+
+    &--lg {
+      width: 140px;
+
+      @include mq(sp) {
+        width: 84px;
+      }
+    }
+  }
+
+  &__body {
+    margin-top: 18px;
+  }
+
+  &__store {
+    display: inline-block;
+    font-weight: 600;
+    line-height: 27px;
+    text-decoration: underline;
+  }
+
+  &__title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 42px;
+
+    @include mq(sp) {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  &__sub {
+    display: block;
+    font-size: 23px;
+    line-height: 30px;
+
+    @include mq(sp) {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+
+  &__desc {
+    line-height: 24px;
+
+    @include mq(sp) {
+      line-height: 22px;
+    }
+  }
+
+  // 写真左・テキスト右の横並び（Tonkatsu Daiki）
+  &--horizontal {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: 40px;
+
+    @include mq(sp) {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .p-menu__body {
+      margin-top: 0;
+
+      @include mq(sp) {
+        margin-top: 18px;
+      }
+    }
+  }
+}

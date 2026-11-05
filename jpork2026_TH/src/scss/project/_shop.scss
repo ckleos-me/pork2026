@@ -1,0 +1,301 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixins" as *;
+
+.p-shops-head {
+  padding-top: 85px;
+
+  @include mq(sp) {
+    padding-top: 48px;
+  }
+
+  & + .p-shop {
+    padding-top: 18px;
+  }
+}
+
+// ==========================================
+// 店舗ブロック（白背景 / 赤背景 --red）
+// ==========================================
+.p-shop {
+  padding: 60px 0 64px;
+
+  @include mq(sp) {
+    padding: 40px 0 48px;
+  }
+
+  &__header {
+    margin-bottom: 30px;
+    color: $color-primary;
+  }
+
+  &__name {
+    border-bottom: 2px solid currentColor;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 50px;
+
+    @include mq(sp) {
+      font-size: 26px;
+      line-height: 36px;
+    }
+  }
+
+  &__address {
+    margin-top: 6px;
+    color: $color-text;
+    font-size: 16px;
+    line-height: 22px;
+
+    @include mq(sp) {
+      font-size: 13px;
+      line-height: 19px;
+    }
+  }
+
+  &__links {
+    font-size: 16px;
+    line-height: 22px;
+
+    @include mq(sp) {
+      font-size: 13px;
+      line-height: 19px;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px;
+
+    @include mq(sp) {
+      grid-template-columns: 1fr;
+    }
+
+    // 3列（Maisen）
+    &--3col {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 40px 33px;
+
+      @include mq(tb) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      @include mq(sp) {
+        grid-template-columns: 1fr;
+      }
+
+      .p-menu__image {
+        aspect-ratio: 405 / 285;
+      }
+
+      // 1行の料理名でも補足文の高さを揃える（デザインは2行分の枠）
+      .p-menu__title {
+        @include mq-up(sp) {
+          min-height: 84px;
+        }
+      }
+    }
+  }
+
+  &--red {
+    background: $color-primary;
+    color: $color-bg;
+
+    .p-shop__header {
+      color: $color-accent;
+    }
+
+    .p-shop__address {
+      color: $color-bg;
+    }
+  }
+}
+
+// ==========================================
+// メニューカード
+// ==========================================
+// 同じ店舗内で価格ラベルの位置を揃えるため、本文を縦 flex にして価格を下端へ
+.p-menu {
+  display: flex;
+  flex-direction: column;
+
+  &__image {
+    position: relative;
+    aspect-ratio: 620 / 436;
+  }
+
+  &__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__logo {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 120px;
+    border-radius: 50%;
+
+    @include mq(sp) {
+      width: 72px;
+    }
+
+    &--lg {
+      width: 140px;
+
+      @include mq(sp) {
+        width: 84px;
+      }
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 18px;
+
+    .c-price-list {
+      margin-top: auto;
+      padding-top: 21px;
+    }
+  }
+
+  &__store {
+    display: inline-block;
+    font-weight: 600;
+    line-height: 27px;
+    text-decoration: underline;
+  }
+
+  &__title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 42px;
+
+    @include mq(sp) {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  &__sub {
+    display: block;
+    font-size: 23px;
+    line-height: 30px;
+
+    @include mq(sp) {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+
+  &__desc {
+    line-height: 24px;
+
+    @include mq(sp) {
+      line-height: 22px;
+    }
+
+    // 料理名の補足（Maisen）
+    &--lead {
+      margin-top: 4px;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 26px;
+
+      @include mq(sp) {
+        font-size: 16px;
+        line-height: 23px;
+      }
+    }
+  }
+
+  // 写真左・テキスト右の横並び（Tonkatsu Daiki）
+  &--horizontal {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: 40px;
+
+    @include mq(sp) {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .p-menu__body {
+      margin-top: 0;
+
+      @include mq(sp) {
+        margin-top: 18px;
+      }
+    }
+  }
+}
+
+// ==========================================
+// More Promotions Coming Soon!（近日公開店舗）
+// ==========================================
+.p-coming {
+  padding: 24px 0 109px;
+
+  @include mq(sp) {
+    padding: 8px 0 56px;
+  }
+
+  &__box {
+    padding: 30px 20px 40px;
+    border: 1.73px solid #d49b24;
+    background: #f8eddc;
+    text-align: center;
+
+    @include mq(sp) {
+      padding: 20px 16px 28px;
+    }
+  }
+
+  &__title {
+    color: $color-primary;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 72px;
+
+    @include mq(tb) {
+      font-size: 42px;
+      line-height: 52px;
+    }
+
+    @include mq(sp) {
+      font-size: 26px;
+      line-height: 34px;
+    }
+  }
+
+  &__logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 89px;
+    margin-top: 10px;
+
+    @include mq(sp) {
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    img {
+      width: 170px;
+      border-radius: 50%;
+
+      @include mq(sp) {
+        width: 120px;
+      }
+    }
+  }
+}

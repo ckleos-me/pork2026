@@ -1,0 +1,31 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixins" as *;
+
+.c-price-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 17px;
+  margin-top: 8px;
+}
+
+.c-price {
+  display: inline-flex;
+  align-items: center;
+  height: 38px;
+  padding: 0 7px;
+  background: $color-primary;
+  color: $color-bg;
+  font-size: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+
+  @include mq(sp) {
+    height: 32px;
+    font-size: 15px;
+  }
+
+  &--yellow {
+    background: $color-accent;
+    color: $color-primary;
+  }
+}

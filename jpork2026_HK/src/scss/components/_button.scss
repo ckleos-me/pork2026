@@ -1,0 +1,15 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixins" as *;
+
+.c-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 285px;
+  height: 50px;
+  border-radius: 25px;
+  background: $color-button;
+  color: $color-primary;
+  font-size: 18px;
+  font-weight: 600;
+}

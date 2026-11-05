@@ -1,0 +1,71 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixins" as *;
+
+.p-intro {
+  padding: 76px 0 85px;
+  background: $color-primary;
+  color: $color-bg;
+
+  @include mq(sp) {
+    padding: 48px 0 56px;
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 615px) minmax(0, 620px);
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+
+    @include mq(tb) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__title {
+    font-family: $font-th-heading;
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 66px;
+
+    @include mq(sp) {
+      font-size: 28px;
+      line-height: 36px;
+    }
+  }
+
+  &__text {
+    margin-top: 23px;
+
+    @include mq(sp) {
+      margin-top: 12px;
+    }
+
+    p {
+      font-weight: 400;
+      line-height: 28px;
+
+      @include mq(sp) {
+        line-height: 24px;
+      }
+
+      & + p {
+        margin-top: 28px;
+
+        @include mq(sp) {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+
+  &__image {
+    margin-top: 6px;
+
+    img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+  }
+}

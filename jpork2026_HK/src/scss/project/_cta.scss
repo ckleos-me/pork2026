@@ -1,0 +1,43 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixins" as *;
+
+.p-cta {
+  padding: 109px 0 76px;
+  background: $color-primary;
+  font-family: $font-tc;
+  text-align: center;
+
+  @include mq(sp) {
+    padding: 56px 0 56px;
+  }
+
+  &__title {
+    color: $color-bg;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 34px;
+
+    @include mq(sp) {
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+
+  &__mascot {
+    width: 147px;
+    margin: 19px auto 0;
+  }
+
+  &__button {
+    margin-top: 21px;
+
+    .c-button {
+      font-size: 24px;
+      font-weight: 700;
+
+      @include mq(sp) {
+        font-size: 20px;
+      }
+    }
+  }
+}

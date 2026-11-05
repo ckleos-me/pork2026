@@ -1,0 +1,8 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixins" as *;
+
+.l-container {
+  max-width: $container-width + $container-padding * 2;
+  margin-inline: auto;
+  padding-inline: $container-padding;
+}

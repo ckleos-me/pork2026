@@ -1,0 +1,27 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixins" as *;
+
+.p-hero {
+  padding: 120px 0;
+  text-align: center;
+  background: $color-primary;
+  color: $color-bg;
+
+  @include mq(sp) {
+    padding: 72px 0;
+  }
+
+  &__title {
+    font-size: 56px;
+    line-height: 1.2;
+
+    @include mq(sp) {
+      font-size: 36px;
+    }
+  }
+
+  &__lead {
+    margin-top: 16px;
+    font-size: 20px;
+  }
+}

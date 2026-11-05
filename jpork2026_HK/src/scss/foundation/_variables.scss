@@ -1,0 +1,27 @@
+// ==========================================
+// Variables (Hong Kong)
+// ==========================================
+
+// Colors
+$color-primary: #dd2813;
+$color-accent: #f0db73;
+$color-button: #fcee21;
+$color-text: #000;
+$color-text-sub: #1a1a1a;
+$color-bg: #fff;
+$color-placeholder: #e6e6e6;
+$color-placeholder-dark: #ccc;
+
+// Fonts（英字は Poppins、中国語は Noto Sans TC にフォールバック）
+$font-base: "Poppins", "Noto Sans TC", sans-serif;
+$font-tc: "Noto Sans TC", sans-serif;
+
+// Layout
+$container-width: 1280px;
+$container-padding: 20px;
+
+// Breakpoints
+$breakpoints: (
+  sp: 767px,
+  tb: 1023px,
+);

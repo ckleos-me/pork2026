@@ -1,0 +1,299 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixins" as *;
+
+.p-shops-head {
+  padding-top: 68px;
+
+  @include mq(sp) {
+    padding-top: 48px;
+  }
+
+  & + .p-shop {
+    padding-top: 31px;
+  }
+}
+
+// ==========================================
+// 店舗ブロック（白背景 / 赤背景 --red）
+// ==========================================
+.p-shop {
+  padding: 68px 0 100px;
+
+  @include mq(sp) {
+    padding: 40px 0 48px;
+  }
+
+  &__header {
+    margin-bottom: 30px;
+    color: $color-primary;
+  }
+
+  &__name {
+    border-bottom: 2px solid currentColor;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 50px;
+
+    @include mq(sp) {
+      font-size: 26px;
+      line-height: 36px;
+    }
+
+    // 「宴食堂」など中国語表記
+    span {
+      font-family: $font-tc;
+      font-size: 36px;
+      font-weight: 700;
+
+      @include mq(sp) {
+        font-size: 24px;
+      }
+    }
+  }
+
+  // 複数店舗の住所リスト
+  &__branches {
+    margin-top: 6px;
+    font-size: 16px;
+    line-height: 22px;
+
+    @include mq(sp) {
+      font-size: 13px;
+      line-height: 20px;
+    }
+
+    li + li {
+      @include mq(sp) {
+        margin-top: 4px;
+      }
+    }
+
+    strong {
+      font-weight: 700;
+    }
+
+    a {
+      text-decoration: underline;
+      white-space: nowrap;
+    }
+  }
+
+  &__address {
+    margin-top: 6px;
+    font-size: 16px;
+    line-height: 22px;
+
+    @include mq(sp) {
+      font-size: 13px;
+      line-height: 19px;
+    }
+  }
+
+  &__links {
+    font-size: 16px;
+    line-height: 22px;
+
+    @include mq(sp) {
+      font-size: 13px;
+      line-height: 19px;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px;
+
+    @include mq(sp) {
+      grid-template-columns: 1fr;
+    }
+
+    // 3列（En-Shokudo）
+    &--3col {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 40px 33px;
+
+      @include mq(tb) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      @include mq(sp) {
+        grid-template-columns: 1fr;
+      }
+
+      .p-menu__image {
+        aspect-ratio: 405 / 285;
+      }
+    }
+  }
+
+  &--red {
+    background: $color-primary;
+    color: $color-bg;
+
+    .p-shop__header {
+      color: $color-accent;
+    }
+
+    .p-shop__address {
+      color: $color-bg;
+    }
+  }
+}
+
+// ==========================================
+// メニューカード
+// ==========================================
+// 同じ店舗内で価格ラベルの位置を揃えるため、本文を縦 flex にして価格を下端へ
+.p-menu {
+  display: flex;
+  flex-direction: column;
+
+  &__image {
+    position: relative;
+    aspect-ratio: 620 / 436;
+
+    // 写真未支給時の仮枠（Figma のグレー矩形）
+    &--placeholder {
+      background: $color-placeholder;
+    }
+
+    &--placeholder-dark {
+      background: $color-placeholder-dark;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__logo {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 120px;
+    border-radius: 50%;
+
+    @include mq(sp) {
+      width: 72px;
+    }
+
+    &--lg {
+      width: 140px;
+
+      @include mq(sp) {
+        width: 84px;
+      }
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 18px;
+
+    .c-price-list {
+      margin-top: auto;
+      padding-top: 16px;
+    }
+  }
+
+  &__store {
+    display: inline-block;
+    font-weight: 600;
+    line-height: 27px;
+    text-decoration: underline;
+  }
+
+  &__title {
+    margin-top: 5px;
+    font-family: $font-tc;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 33px;
+
+    @include mq(sp) {
+      font-size: 22px;
+      line-height: 28px;
+    }
+  }
+
+  &__desc {
+    line-height: 24px;
+    overflow-wrap: anywhere;
+
+    @include mq(sp) {
+      line-height: 22px;
+    }
+  }
+}
+
+// ==========================================
+// 更多優惠即將推出！（近日公開店舗）
+// ==========================================
+.p-coming {
+  padding: 40px 0 129px;
+
+  @include mq(sp) {
+    padding: 8px 0 56px;
+  }
+
+  &__box {
+    padding: 26px 20px 40px;
+    border: 1.73px solid #d49b24;
+    background: #f8eddc;
+    text-align: center;
+
+    @include mq(sp) {
+      padding: 20px 16px 28px;
+    }
+  }
+
+  &__title {
+    color: $color-primary;
+    font-family: $font-tc;
+    font-size: 56px;
+    font-weight: 500;
+    line-height: 67px;
+
+    @include mq(tb) {
+      font-size: 42px;
+      line-height: 52px;
+    }
+
+    @include mq(sp) {
+      font-size: 26px;
+      line-height: 34px;
+    }
+  }
+
+  &__logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px;
+    margin-top: 24px;
+
+    @include mq(sp) {
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    img {
+      width: 170px;
+      border-radius: 50%;
+
+      @include mq(sp) {
+        width: 120px;
+      }
+    }
+  }
+}
